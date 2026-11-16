@@ -34,7 +34,7 @@ def send(message):
 
 
 def main():
-        send("✅ TON Crypto Alert is working!")
+    send("✅ TON Crypto Alert is working!")
     result = fetch(API)
     pools = result.get("data", [])
     if not isinstance(pools, list):
