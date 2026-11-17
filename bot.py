@@ -65,17 +65,19 @@ def main():
             "https://www.geckoterminal.com/ton/pools/"
             + urllib.parse.quote(address, safe="")
         )
-
+        
         message = (
-            f"🆕 New TON trading pool\n"
-            f"Pair: {name}\n"
-            f"Created: {created}\n"
-            f"Liquidity (USD): {liquidity}\n"     
-            f"{'⚠️ Low liquidity (under $500)' if liquidity_value < 500 else '✅ Liquidity above $500'}\n"
-            f"Pool: {address}\n"
-            f"{link}\n"
-            "⚠️ Verify the token before trading."
+            "🚀 NEW TON POOL DETECTED!\n"
+            "━━━━━━━━━━━━━━━━━━\n"
+            f"🪙 Pair: {name}\n"
+            f"💰 Liquidity: ${liquidity}\n"
+            f"🕒 Created: {created}\n"
+            f"{'⚠️ LOW LIQUIDITY (<$500)' if liquidity_value < 500 else '✅ Liquidity above $500'}\n"
+            "━━━━━━━━━━━━━━━━━━\n"
+            f"🔗 GeckoTerminal:\n{link}\n"
+            "⚠️ DYOR - Not financial advice."
         )
+
         send(message)
         seen.add(pid)
 
