@@ -59,6 +59,7 @@ def main():
         name = attrs.get("name") or "Unknown pair"
         created = attrs.get("pool_created_at") or "Unknown"
         liquidity = attrs.get("reserve_in_usd") or "Unknown"
+        liquidity_value = float(liquidity or 0) if str(liquidity).replace(".", "", 1).isdigit() else 0.0
         address = attrs.get("address") or pid.split("_", 1)[-1]
         link = (
             "https://www.geckoterminal.com/ton/pools/"
@@ -69,7 +70,8 @@ def main():
             f"🆕 New TON trading pool\n"
             f"Pair: {name}\n"
             f"Created: {created}\n"
-            f"Liquidity (USD): {liquidity}\n"
+            f"Liquidity (USD): {liquidity}\n"     
+            f"{'⚠️ Low liquidity (under $500)' if liquidity_value < 500 else '✅ Liquidity above $500'}\n"
             f"Pool: {address}\n"
             f"{link}\n"
             "⚠️ Verify the token before trading."
