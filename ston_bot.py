@@ -70,7 +70,7 @@ def main():
             print("--------------------")
             print("NEW STON.fi POOL")
             print("Address:", address)
-            print("LP Supply USD:", value_usd)
+            print("Candidate liquidity USD:", value_usd)
             print("Volume 24h:", pool.get("volume_24h_usd"))
 
     with open(STATE, "w", encoding="utf-8") as f:
