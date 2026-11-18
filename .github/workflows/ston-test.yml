@@ -17,5 +17,6 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Test STON.fi API
-        run: python ston_test.py
+      - name: Test STON.fi Pool Detection
+        run: python ston_bot.py
+
