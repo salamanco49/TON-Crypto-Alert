@@ -27,6 +27,12 @@ try:
         print("Token 1:", pool.get("token0_address"))
         print("Token 2:", pool.get("token1_address"))
         print("Available fields:", list(pool.keys()))
+        print("LP Price USD:", pool.get("lp_price_usd"))
+        print("LP Total Supply:", pool.get("lp_total_supply"))
+        print("LP Total Supply USD:", pool.get("lp_total_supply_usd"))
+        print("Reserve 0:", pool.get("reserve0"))
+        print("Reserve 1:", pool.get("reserve1"))
+
 
 except Exception as e:
     print("STON.fi API ERROR:", str(e))
