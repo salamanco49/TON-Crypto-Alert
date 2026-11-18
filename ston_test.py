@@ -26,6 +26,7 @@ try:
         print("Address:", pool.get("address"))
         print("Token 1:", pool.get("token0_address"))
         print("Token 2:", pool.get("token1_address"))
+        print("Available fields:", list(pool.keys()))
 
 except Exception as e:
     print("STON.fi API ERROR:", str(e))
