@@ -53,6 +53,7 @@ def main():
     for pool in reversed(pools):
         pid = pool.get("id")
         if not pid or pid in seen:
+            print(f"Skipping already seen pool: {pid}")
             continue
 
         attrs = pool.get("attributes") or {}
