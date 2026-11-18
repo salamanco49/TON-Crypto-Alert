@@ -74,7 +74,18 @@ def main():
             print("Volume 24h:", pool.get("volume_24h_usd"))
 
     with open(STATE, "w", encoding="utf-8") as f:
-        json.dump(sorted(seen | current), f)
+        
+        json.dump(sorted(seen | {
+            p["address"] for p in pools
+            if p.get("address") and (
+                p["address"] in seen or
+                (
+                    p.get("lp_total_supply_usd") is not None
+                    and float(p["lp_total_supply_usd"]) > MIN_USD
+                )
+            )
+        }), f)
+
 
     print("New pools:", new_count)
     print("Above $500:", qualified)
