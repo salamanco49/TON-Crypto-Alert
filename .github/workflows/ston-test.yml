@@ -19,4 +19,21 @@ jobs:
 
       - name: Test STON.fi Pool Detection
         run: python ston_bot.py
+        
+      - name: Save STON.fi detected pools
+        run: |
+          if [ -f ston_seen.json ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add ston_seen.json
+            if ! git diff --cached --quiet; then
+              git commit -m "Update detected STON.fi pools"
+              git push
+            fi
+          fi
+
+
+
+permissions:
+  contents: write
 
